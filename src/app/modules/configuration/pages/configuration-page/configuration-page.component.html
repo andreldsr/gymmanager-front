@@ -1,0 +1,46 @@
+<form nz-form [formGroup]="configForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="name" nzRequired>Nome</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input name="name" type="text" id="name" formControlName="name">
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="primaryColor" nzRequired>Cor primária</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Por favor, selecione a cor primária">
+            <nz-select id="primaryColor" formControlName="primaryColor" nzPlaceHolder="Selecione uma cor">
+                <nz-option *ngFor="let color of colorList" [nzValue]="color.name" [nzLabel]="color.name"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="secondaryColor" nzRequired>Cor secundária</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Por favor, selecione a cor secundária">
+            <nz-select id="secondaryColor" formControlName="secondaryColor" nzPlaceHolder="Selecione uma cor">
+                <nz-option *ngFor="let color of colorList" [nzValue]="color.name" [nzLabel]="color.name"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="headingTextFont" nzRequired>Fonte título</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Por favor, selecione a fonte do título">
+            <nz-select id="headingTextFont" formControlName="headingTextFont" nzPlaceHolder="Selecione uma fonte">
+                <nz-option *ngFor="let font of fonts.fonts" [nzValue]="font" [nzLabel]="font"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="5" nzFor="bodyTextFont" nzRequired>Fonte texto</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzErrorTip="Por favor, selecione a fonte do texto">
+            <nz-select id="bodyTextFont" formControlName="bodyTextFont" nzPlaceHolder="Selecione uma fonte">
+                <nz-option *ngFor="let font of fonts.fonts" [nzValue]="font" [nzLabel]="font"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (submit)="true">Salvar</button>
+</form>
